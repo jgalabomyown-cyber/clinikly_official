@@ -28,8 +28,8 @@ export default function Sidebar({ userRole, fullName, email }: SidebarProps) {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
-    const initialTheme = theme === 'dark' ? 'dark' : 'light';
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
     setTheme(initialTheme);
 
     // Ensure Tailwind `dark:` styles react immediately.
@@ -69,7 +69,7 @@ export default function Sidebar({ userRole, fullName, email }: SidebarProps) {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <aside className="{w-full md:w-64 ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'} border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 p-5 flex flex-col justify-between min-h-screen transition-colors duration-200">
+    <aside className="w-full md:w-64 bg-white dark:bg-slate-900 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 p-5 flex flex-col justify-between min-h-screen transition-colors duration-200">
       <div className="space-y-6">
         
         {/* Platform Branding & Global Theme Toggle */}
