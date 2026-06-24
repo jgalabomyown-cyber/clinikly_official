@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+ import { NextRequest, NextResponse } from 'next/server';
 
 // Supabase email confirmation callbacks typically look like:
 //   /auth/callback?code=XXXX&next=...
