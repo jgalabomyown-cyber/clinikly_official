@@ -32,12 +32,10 @@ export default function Sidebar({ userRole, fullName, email }: SidebarProps) {
     const initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
     setTheme(initialTheme);
 
-    // Ensure Tailwind `dark:` styles react immediately.
     if (initialTheme === 'dark') document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
   }, []);
 
-  // Keep UI consistent if something else changes the theme.
   useEffect(() => {
     const handler = () => {
       const savedTheme = localStorage.getItem('theme') || 'light';
@@ -51,10 +49,8 @@ export default function Sidebar({ userRole, fullName, email }: SidebarProps) {
     return () => window.removeEventListener('storage', handler);
   }, []);
 
-
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    // Use the computed value directly to avoid any stale state issues
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
 
@@ -84,7 +80,7 @@ export default function Sidebar({ userRole, fullName, email }: SidebarProps) {
             </div>
           </div>
           
-          {/* Re-integrated Light/Dark Toggle */}
+          {/* Light/Dark Toggle */}
           <button 
             onClick={toggleTheme}
             className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all active:scale-95"

@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
+// Add Link from next/link for local routing
+import Link from 'next/link';
 import { 
   FileText, 
   Calendar, 
@@ -11,7 +13,10 @@ import {
   Clock, 
   XCircle, 
   Info, 
-  UserPlus
+  UserPlus,
+  ArrowRight,
+  Shield,
+  FolderOpen
 } from 'lucide-react';
 
 export default function PatientDashboard() {
@@ -69,6 +74,50 @@ export default function PatientDashboard() {
         <p className="text-xs text-slate-500 mt-1">
           Manage secure cryptographic file vaults, track physical credentials, and coordinate consultation diaries.
         </p>
+      </div>
+
+      {}
+      {/* QUICK NAVIGATION PANEL */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Link 
+          href="/patient/records"
+          className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all group text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div className="space-y-1">
+              <div className="p-2 w-fit rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400">
+                <FolderOpen size={18} />
+              </div>
+              <h3 className="text-sm font-black mt-3 dark:text-white">Go to Records Vault</h3>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                Upload new diagnostic sheets, organize files by type, and monitor verification audits.
+              </p>
+            </div>
+            <span className="p-2 rounded-full bg-slate-50 dark:bg-slate-950 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all">
+              <ArrowRight size={14} />
+            </span>
+          </div>
+        </Link>
+
+        <Link 
+          href="/patient/appointments"
+          className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-md transition-all group text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div className="space-y-1">
+              <div className="p-2 w-fit rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+                <Calendar size={18} />
+              </div>
+              <h3 className="text-sm font-black mt-3 dark:text-white">Book Consultations</h3>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                Search verified clinical specialists, view real-time availability fees, and reserve slots.
+              </p>
+            </div>
+            <span className="p-2 rounded-full bg-slate-50 dark:bg-slate-950 text-slate-400 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all">
+              <ArrowRight size={14} />
+            </span>
+          </div>
+        </Link>
       </div>
 
       {/* Patient Stats Row */}
