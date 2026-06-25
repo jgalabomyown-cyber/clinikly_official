@@ -181,7 +181,7 @@ export default function PatientRecordsPage() {
       )}
 
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-5 border-slate-200 dark:border-slate-850">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-5 border-slate-200 dark:border-slate-800">
         <div>
           <h1 className="text-2xl font-black tracking-tight dark:text-white">Secure Medical Vault</h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -280,7 +280,7 @@ export default function PatientRecordsPage() {
               >
                 {/* File Details Group */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5">
+                  <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flexshrink-0 mt-0.5">
                     <FileText size={20} />
                   </div>
                   <div className="space-y-1 overflow-hidden">
@@ -332,7 +332,7 @@ export default function PatientRecordsPage() {
                       href={rec.file_url} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850"
+                      className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
                       title="Download/Preview encrypted PDF"
                     >
                       <Download size={14} />
@@ -366,7 +366,7 @@ export default function PatientRecordsPage() {
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="w-full max-w-lg rounded-3xl p-6 border shadow-2xl animate-in fade-in zoom-in-95 duration-200 bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-800 dark:text-white">
             
-            <div className="flex items-center justify-between border-b pb-3 border-slate-150 dark:border-slate-800">
+            <div className="flex items-center justify-between border-b pb-3 border-slate-200 dark:border-slate-800">
               <h3 className="text-sm font-extrabold uppercase tracking-wider flex items-center gap-1.5">
                 <FileUp size={16} className="text-blue-500" />
                 Vault Cryptography Upload Drawer
@@ -428,7 +428,7 @@ export default function PatientRecordsPage() {
                   <select
                     value={uploadCategory}
                     onChange={(e) => setUploadCategory(e.target.value)}
-                    className="block w-full px-3 py-2 text-xs border rounded-xl bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-850 text-slate-900 dark:text-white"
+                    className="block w-full px-3 py-2 text-xs border rounded-xl bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white"
                   >
                     <option value="LAB_RESULT">Laboratory Result</option>
                     <option value="PRESCRIPTION">Prescription Slip</option>
@@ -443,7 +443,7 @@ export default function PatientRecordsPage() {
                   <select
                     value={assignDoctor}
                     onChange={(e) => setAssignDoctor(e.target.value)}
-                    className="block w-full px-3 py-2 text-xs border rounded-xl bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-850 text-slate-900 dark:text-white"
+                    className="block w-full px-3 py-2 text-xs border rounded-xl bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white"
                   >
                     <option value="doc-001">Dr. Sarah Jenkins (Cardiology)</option>
                     <option value="doc-002">Dr. Marcus Vance (General Medicine)</option>
@@ -453,7 +453,7 @@ export default function PatientRecordsPage() {
 
               {/* Safety notice disclaimer */}
               <div className="p-3 bg-blue-500/5 rounded-xl border border-dashed border-blue-500/10 text-[9px] text-slate-500 leading-relaxed flex items-start gap-1.5">
-                <Info size={12} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                <Info size={12} className="text-blue-500 mt-0.5 shrink-0" />
                 <span>
                   <strong>Compliance Directive:</strong> Uploading items automatically logs a pending status audit payload. Assigned clinical specialists review details against cryptographic logs before locking history.
                 </span>
@@ -491,12 +491,12 @@ export default function PatientRecordsPage() {
 }
 
 // Inline component fallback for Icon styling representation
-function UploadCloud(props: React.SVGProps<SVGSVGElement>) {
+function UploadCloud({ size = 24, ...props }: { size?: number } & React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
